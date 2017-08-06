@@ -22,7 +22,6 @@
   networking.networkmanager.enable = true;
   virtualisation.docker.enable = true;
   virtualisation.docker.enableOnBoot = true;
-  nixpkgs.config.allowUnfree = true;
   services.logind.extraConfig = "HandleLidSwitch=suspend\nHandleLidSwitchDocked=suspend" ;
   swapDevices = [
     { label = "swap"; }
@@ -40,34 +39,45 @@
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
+
+   nixpkgs.config = {
+       allowUnfree = true;
+   
+       packageOverrides = pkgs: {
+         neovim = pkgs.neovim.override {
+           vimAlias = true;
+       };
+     };
+   };
+   
    environment.systemPackages = with pkgs; [
-     apvlv
-     wget
-     firefox
-     feh
-     mpv
-     copyq
-     tdesktop
-     termite
-     termite.terminfo
-     neovim
-     pavucontrol
-     dmenu2
-     scrot
-     screenfetch
-     xclip
-     copyq
-     git
-     htop
-     pulseaudioLight
-     rtorrent
-     docker
-     docker_compose
-     xorg.xmodmap
-     i3
-     i3status
-     i3lock
-   ];
+       apvlv
+       wget
+       firefox
+       feh
+       mpv
+       copyq
+       tdesktop
+       termite
+       termite.terminfo
+       neovim
+       pavucontrol
+       dmenu2
+       scrot
+       screenfetch
+       xclip
+       copyq
+       git
+       htop
+       pulseaudioLight
+       rtorrent
+       docker
+       docker_compose
+       xorg.xmodmap
+       i3
+       i3status
+       i3lock
+     ];
 
    fonts = {
      enableFontDir = true;
