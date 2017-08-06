@@ -77,6 +77,7 @@
        i3
        i3status
        i3lock
+       speedtest-cli
      ];
 
    fonts = {
