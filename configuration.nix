@@ -15,6 +15,8 @@
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
 
+  hardware.pulseaudio.enable = true;
+
   networking.hostName = "rat"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
@@ -39,6 +41,7 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
    environment.systemPackages = with pkgs; [
+     apvlv
      wget
      firefox
      feh
@@ -56,6 +59,7 @@
      copyq
      git
      htop
+     pulseaudioLight
      rtorrent
      docker
      docker_compose
