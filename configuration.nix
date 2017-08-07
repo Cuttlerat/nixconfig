@@ -78,6 +78,8 @@
        i3status
        i3lock
        speedtest-cli
+       gimp
+       libreoffice
      ];
 
    fonts = {
