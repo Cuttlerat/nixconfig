@@ -80,6 +80,8 @@
        speedtest-cli
        gimp
        libreoffice
+       bind
+       whois
      ];
 
    fonts = {
