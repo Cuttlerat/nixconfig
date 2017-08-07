@@ -22,6 +22,7 @@
   networking.networkmanager.enable = true;
   virtualisation.docker.enable = true;
   virtualisation.docker.enableOnBoot = true;
+  virtualisation.virtualbox.host.enable = true;
   services.logind.extraConfig = "HandleLidSwitch=suspend\nHandleLidSwitchDocked=suspend" ;
   swapDevices = [
     { label = "swap"; }
@@ -82,6 +83,7 @@
        libreoffice
        bind
        whois
+       virtualbox
      ];
 
    fonts = {
