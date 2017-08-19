@@ -14,6 +14,7 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+  fileSystems."/home/backup".device = "/dev/disk/by-uuid/a8ec761a-6cc3-4800-9fa1-5719e151c813";
 
   hardware.pulseaudio.enable = true;
 
@@ -22,6 +23,8 @@
   networking.networkmanager.enable = true;
   virtualisation.docker.enable = true;
   virtualisation.docker.enableOnBoot = true;
+  services.cron.enable = true;
+  services.cron.systemCronJobs = [ "03 20 * * * root rsnapshot -c /home/rat/.config/rsnapshot.conf daily" ];
   services.logind.extraConfig = "HandleLidSwitch=suspend\nHandleLidSwitchDocked=suspend" ;
   swapDevices = [
     { label = "swap"; }
@@ -42,13 +45,9 @@
 
    nixpkgs.config = {
        allowUnfree = true;
-   
-       packageOverrides = pkgs: {
-         neovim = pkgs.neovim.override {
-           vimAlias = true;
-       };
-     };
    };
+
+   programs.bash.enableCompletion = true;
    
    environment.systemPackages = with pkgs; [
        apvlv
@@ -57,6 +56,8 @@
        feh
        mpv
        copyq
+       cron
+       bash-completion
        tdesktop
        termite
        termite.terminfo
@@ -81,6 +82,11 @@
        gimp
        libreoffice
      ];
+
+   nixpkgs.config.packageOverrides = pkgs:
+   {
+         neovim = pkgs.neovim.override { vimAlias = true; }; 
+   };
 
    fonts = {
      enableFontDir = true;
