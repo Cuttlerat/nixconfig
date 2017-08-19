@@ -23,8 +23,7 @@
   networking.networkmanager.enable = true;
   virtualisation.docker.enable = true;
   virtualisation.docker.enableOnBoot = true;
-  services.cron.enable = true;
-  services.cron.systemCronJobs = [ "03 20 * * * root rsnapshot -c /home/rat/.config/rsnapshot.conf daily" ];
+  virtualisation.virtualbox.host.enable = true;
   services.logind.extraConfig = "HandleLidSwitch=suspend\nHandleLidSwitchDocked=suspend" ;
   swapDevices = [
     { label = "swap"; }
@@ -81,6 +80,9 @@
        speedtest-cli
        gimp
        libreoffice
+       bind
+       whois
+       virtualbox
      ];
 
    nixpkgs.config.packageOverrides = pkgs:
@@ -101,21 +103,7 @@
        powerline-fonts
      ];
    };
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable the X11 windowing system.
+ # Xserver
   services.xserver = {
       enable = true;
       layout = "us";
