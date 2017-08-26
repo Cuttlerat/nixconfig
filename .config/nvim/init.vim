@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 syntax on
-colorscheme monokai
+colorscheme srcery-drk
 set rtp+=~/.vim/bundle/Vundle.vim
 
 set t_ut=
@@ -29,11 +29,14 @@ inoremap <Tab> <C-R>=SuperCleverTab()<cr>
 
 set softtabstop=4
 set shiftwidth=4
-set expandtab 
+set expandtab
 set ignorecase
 set langmap=Ж:,йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х[,ъ],фa,ыs,вd,аf,пg,рh,оj,лk,дl,э',яz,чx,сc,мv,иb,тn,ьm,б\\,,ю.,ё`
+set foldmethod=marker
 
-
+" Whitespaces highlighting
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -53,14 +56,13 @@ set langmap=Ж:,йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х[,ъ],фa,ыs,вd,аf,
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
 Plugin 'scrooloose/nerdtree'
-"Plugin 'daylerees/colour-schemes'
 Plugin 'Cuttlerat/bash-support.vim'
 Plugin 'Shougo/neocomplcache.vim'
 Plugin 'kien/ctrlp.vim'
-"Plugin 'edkolev/promptline.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
+let airline_theme = 'base16_chalk'
 map <C-n> :NERDTreeToggle<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
