@@ -134,7 +134,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 hide_edge_borders both
 
-set $Locker i3lock -c 000000 && sleep 1
+set $Locker "setxkbmap -layout us && i3lock -c 000000 -n && setxkbmap -layout us,ru -option grp:alt_shift_toggle && xmodmap -e 'clear Lock' && xmodmap -e 'keycode 0x42=Escape'"
 
 set $mode_system [l]Lock|[e]Logout|[s]Suspend|[h]Hibernate|[r]Reboot|[S]Shutdown
 mode "$mode_system" {
@@ -143,7 +143,7 @@ mode "$mode_system" {
     bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
     bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
