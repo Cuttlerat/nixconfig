@@ -14,7 +14,6 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
-  fileSystems."/home/backup".device = "/dev/disk/by-uuid/a8ec761a-6cc3-4800-9fa1-5719e151c813";
 
   hardware.pulseaudio.enable = true;
 
@@ -47,7 +46,7 @@
    };
 
    programs.bash.enableCompletion = true;
-   
+
    environment.systemPackages = with pkgs; [
        apvlv
        wget
@@ -87,7 +86,7 @@
 
    nixpkgs.config.packageOverrides = pkgs:
    {
-         neovim = pkgs.neovim.override { vimAlias = true; }; 
+         neovim = pkgs.neovim.override { vimAlias = true; };
    };
 
    fonts = {
