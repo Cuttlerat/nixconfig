@@ -50,6 +50,7 @@
    environment.systemPackages = with pkgs; [
        apvlv
        wget
+       bind
        firefox
        feh
        mpv
