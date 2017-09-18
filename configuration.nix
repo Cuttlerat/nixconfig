@@ -120,7 +120,7 @@
    users.extraUsers.rat = {
      isNormalUser = true;
      home = "/home/rat";
-     extraGroups = [ "wheel" "networkmanager" ];
+     extraGroups = [ "wheel" "networkmanager" "docker" ];
      uid = 1000;
    };
 
