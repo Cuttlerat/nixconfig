@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
@@ -18,7 +14,6 @@
   hardware.pulseaudio.enable = true;
 
   networking.hostName = "rat"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
   virtualisation.docker.enable = true;
   virtualisation.docker.enableOnBoot = true;
@@ -39,7 +34,6 @@
   time.timeZone = "Europe/Moscow";
 
   # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
 
    nixpkgs.config = {
        allowUnfree = true;
@@ -49,6 +43,7 @@
 
    environment.systemPackages = with pkgs; [
        apvlv
+       ansible
        wget
        bind
        firefox
@@ -103,6 +98,7 @@
        powerline-fonts
      ];
    };
+
  # Xserver
   services.xserver = {
       enable = true;
