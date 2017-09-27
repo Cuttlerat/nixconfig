@@ -2,6 +2,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 syntax on
 colorscheme srcery-drk
+autocmd BufNewFile,BufRead *.Dockerfile   set syntax=Dockerfile
 " {{{ Sets
 set rtp+=~/.config/nvim/Vundle.vim
 set number
@@ -13,6 +14,10 @@ set expandtab
 set ignorecase
 set foldmethod=marker
 set t_ut=
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 " {{{ Langmap
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 " }}}
@@ -37,6 +42,7 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
 " {{{ Plugins
+Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Cuttlerat/bash-support.vim'
 Plugin 'Shougo/neocomplcache.vim'
