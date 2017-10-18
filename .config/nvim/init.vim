@@ -50,6 +50,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
+Plugin 'Cuttlerat/hastebin.vim'
 " }}}
 
 let airline_theme = 'base16_chalk'
