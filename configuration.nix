@@ -49,7 +49,6 @@
        firefox
        feh
        mpv
-       copyq
        cron
        bash-completion
        tdesktop
@@ -61,7 +60,6 @@
        scrot
        screenfetch
        xclip
-       copyq
        git
        htop
        pulseaudioLight
