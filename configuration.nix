@@ -54,7 +54,7 @@
        tdesktop
        termite
        termite.terminfo
-       neovim
+       emacs
        pavucontrol
        dmenu2
        scrot
@@ -77,11 +77,6 @@
        whois
        virtualbox
      ];
-
-   nixpkgs.config.packageOverrides = pkgs:
-   {
-         neovim = pkgs.neovim.override { vimAlias = true; };
-   };
 
    fonts = {
      enableFontDir = true;
